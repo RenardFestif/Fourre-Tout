@@ -1,0 +1,18 @@
+#! /bin/bash
+
+touch /tmp/err.sshju > /tmp/err.sshju 
+TMP=/tmp/err.sshju
+
+if [ $# -eq 0 ]
+then
+    echo "Erreur (Argument manquant) : Il faut ton numero etu en
+argument" 
+elif [ $# -gt 1 ]
+then
+    echo "Erreur (Trop d'arguments) : Seul le numero etu est
+demandé !" 
+else
+    ssh $1@ssh.ufr-info-p6.jussieu.fr -q 2> $TMP
+fi
+
+rm -f $TMP
